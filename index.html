@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="Just a work site for collect the daily." />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.com/images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.com/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = "", randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blogging">blogging</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	<div class="item">
+		
+		<i class="disabled inverted big chevron circle left icon" title="Previous page"></i>
+  	
+  </div>
+	<div class="item">
+			
+		<i class="disabled inverted big chevron circle right icon" title="Next page"></i>
+		
+	</div>
+	
+	
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="fifteen wide mobile fifteen wide tablet four wide computer column">
+		<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class="active title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon up"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class="active content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blogging">blogging</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list">
+		<div class="cards row box">
+			
+	
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.comimages/mos/intro-small.jpeg"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.com/post/mos/>Mongoose OS on ESPer</a></h3>
+	<div class="intro twemoji">A tutorial on how to install Mongoose OS on ESPer.</div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Jan 28, 2018</span></div>
+		<div><span><i class="clock icon"></i>5 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.comimages/netjsonconfig/django2.png"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.com/post/netjsonconfig/>Testing &#34;django-netjsonconfig&#34;</a></h3>
+	<div class="intro twemoji">The challenges which I faced while installing and using <strong>django-netjsonconfig</strong>.</div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Jan 14, 2018</span></div>
+		<div><span><i class="clock icon"></i>3 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.comimages/gci/gci-thumb.png"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.com/post/gci/>Google Code-in with OpenWISP</a></h3>
+	<div class="intro twemoji">My experiences with Google Code-in 2017 and OpenWISP.</div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Jan 13, 2018</span></div>
+		<div><span><i class="clock icon"></i>9 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+
+		</div>
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>So, Who Am I?</h1>
+
+<hr />
+
+<p><br>
+I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux. I feel the inner urge to contribute something to the Internet because I love writing and I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+
+<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are! I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page. Making stuff is just one of the things I love the most.</p>
+
+<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
+
+<p>Curious about me? Use the social links above to check out my profiles.</p>
+
+<p>You can also support me on <a href="https://patreon.com/UtkarshVerma" target="_blank">Patreon</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+</script>
+
+</body>
+
+</html>

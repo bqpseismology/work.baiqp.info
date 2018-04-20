@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Qipeng Bai&#39;s Site</title>
+    <link>http://work.baiqp.com/tags/</link>
+    <description>Recent content in Tags on Qipeng Bai&#39;s Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Jan 2018 14:28:40 +0530</lastBuildDate>
+    
+	<atom:link href="http://work.baiqp.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django</title>
+      <link>http://work.baiqp.com/tags/django/</link>
+      <pubDate>Sun, 14 Jan 2018 14:28:40 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Esp32</title>
+      <link>http://work.baiqp.com/tags/esp32/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/esp32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Code In</title>
+      <link>http://work.baiqp.com/tags/google-code-in/</link>
+      <pubDate>Sun, 14 Jan 2018 14:28:40 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/google-code-in/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iot</title>
+      <link>http://work.baiqp.com/tags/iot/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mongoose Os</title>
+      <link>http://work.baiqp.com/tags/mongoose-os/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/mongoose-os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Openwisp</title>
+      <link>http://work.baiqp.com/tags/openwisp/</link>
+      <pubDate>Sun, 14 Jan 2018 14:28:40 +0530</pubDate>
+      
+      <guid>http://work.baiqp.com/tags/openwisp/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

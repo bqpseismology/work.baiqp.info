@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="Recently I&amp;rsquo;ve got my hands on the craved-for IoT ESP32, thanks to DFRobot, and have been tinkering with it ever since. I&amp;rsquo;m really amazed by it since it packs both Bluetooth and WiFi in a small yet powerful unit. Since I received the MCU rather than the module, so, to use it, I made myself a breakout board named ESPer(because, why not? 😄). Feel free to check out its Instructable over here." />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.com/images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.com/post/mos/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = "", randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blogging">blogging</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column">	
+			<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class=" title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon down"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class=" content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blogging">blogging</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.com/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				Mongoose OS on ESPer
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Jan 28, 2018</span></div>
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://work.baiqp.com/post/mos/#disqus_thread"></a></span></div>
+					<div><span><i class="clock outline icon"></i>5 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Jan 28, 2018</span></div>
+			</div>
+			<hr>
+			
+			
+			<div class="toc">
+				<nav id="TableOfContents">
+<ul>
+<li><a href="#prepping-and-beginning">Prepping and Beginning!</a></li>
+<li><a href="#installing-the-mos-tool">Installing the mos Tool</a></li>
+<li><a href="#wiring-up-esper">Wiring up ESPer</a></li>
+<li><a href="#flashing-the-firmware">Flashing the Firmware</a></li>
+<li><a href="#configuring-the-wifi-settings">Configuring the WiFi Settings</a></li>
+<li><a href="#the-sky-s-the-limit">The Sky&rsquo;s the Limit</a></li>
+</ul>
+</nav>
+			</div>
+			
+			
+			<article class="post-content twemoji">
+				
+
+<p><img src="/images/mos/intro-small.jpeg" alt="Intro" /></p>
+
+<p>Recently I&rsquo;ve got my hands on the craved-for IoT <strong>ESP32</strong>, thanks to <strong><a href="https://www.dfrobot.com">DFRobot</a></strong>, and have been tinkering with it ever since. I&rsquo;m really amazed by it since it packs both <strong>Bluetooth</strong> and <strong>WiFi</strong> in a small yet powerful unit. Since I received the <strong>MCU</strong> rather than the module, so, to use it, I made myself a breakout board named <strong>ESPer</strong>(because, why not? 😄). Feel free to check out its Instructable over <a href="https://www.instructables.com/id/DIY-ESP32-Development-Board-ESPer/">here</a>.</p>
+
+<p>So, coming back on track, this post is dedicated on how to use it efficiently via <strong>Mongoose OS</strong>, which in my opinion, is a great firmware to start with for ESP32 beginners, such as me. It provides a good interface for creating, modifying and and uploading code. I think it&rsquo;s biggest feature is that it allows code modification <strong>over the air</strong>(OTA) so that you don&rsquo;t have to flash your device for every small modification.</p>
+
+<p>Speaking of code, it also supports a variety of languages, including <strong>C++</strong>, <strong>JavaScript</strong> and guess what, <strong>Wiring(Arduino)</strong>. I think that&rsquo;s enough of decribing what Mongoose OS is.</p>
+
+<p>If you&rsquo;re more curious about Mongoose OS, check out it&rsquo;s official site: <a href="https://www.mongoose-os.com">Mongoose OS</a>.</p>
+
+<hr />
+
+<h1 id="prepping-and-beginning">Prepping and Beginning!</h1>
+
+<p>To flash your <strong>ESPer</strong> with <strong>Mongoose OS</strong>, you&rsquo;re supposed to have the following things at bay:</p>
+
+<ul>
+<li>ESPer or ESP32 MCU.</li>
+</ul>
+
+<blockquote>
+<p>This method will also work if your ESP32 is wired according to the ESPer schematic <a href="https://cdn.instructables.com/FOU/1WS0/JBE12R70/FOU1WS0JBE12R70.LARGE.jpg">here</a>. The <a href="https://www.dfrobot.com/product-1559.html">ESP32</a> chip I used!</p>
+</blockquote>
+
+<ul>
+<li>Arduino(any model) or a USB to TTL Converter</li>
+<li>5 - Jumper Wires</li>
+<li>2 - Breadboards (since ESPer doesn&rsquo;t fit on one)</li>
+</ul>
+
+<p>That&rsquo;s all for the requirements. Once you&rsquo;re sure you&rsquo;ve got all the stuff, boost ahead!</p>
+
+<hr />
+
+<h1 id="installing-the-mos-tool">Installing the mos Tool</h1>
+
+<p><img src="/images/mos/mos.png" alt="mos ui" />
+The Mongoose OS website provides an easy-to-use tool for <strong>flashing</strong> and <strong>managing</strong> Mongoose OS on devices. This tool also aids in uploading code and in numerous other tasks.</p>
+
+<p>The installation instructions have been documented on the official website <a href="https://mongoose-os.com/software.html">here</a>.
+Since I&rsquo;m using Lubuntu myself, I had to use the following commands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo add-apt-repository ppa:mongoose-os/mos
+sudo apt-get update
+sudo apt-get install mos</code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<h1 id="wiring-up-esper">Wiring up ESPer</h1>
+
+<p><img src="/images/mos/wiring.jpg" alt="Wiring Diagram" />
+Once the tool is downloaded, wire up your ESPer with any <strong>USB to TTL Converter</strong> since the flashing is to be done via <strong>UART</strong>.</p>
+
+<p>To keep things applicable to a larger reader-base, I&rsquo;ll be proceeding with my good `ol <strong>Arduino UNO</strong>. It&rsquo;s possible to use an Arduino as a <strong>USB to TTL Converter</strong> since it has an in-built <strong>CH340G Converter</strong> which the Arduino uses for programming the ATmega IC.
+Now wire up <strong>ESPer</strong> according to the wiring diagram posted above. Once done it should look something like this.</p>
+
+<p><img src="/images/mos/wiring-real.jpg" alt="ESPer Wired Up" /></p>
+
+<blockquote>
+<p>Be careful while making the <strong>power connections</strong> because ESP32 MCU is <strong>not 5V tolerable</strong> therefore you might end up burning your MCU if you&rsquo;re not careful.</p>
+</blockquote>
+
+<p>Once that&rsquo;s done, connect your Arduino to your PC or any other device.</p>
+
+<hr />
+
+<h1 id="flashing-the-firmware">Flashing the Firmware</h1>
+
+<p>Now that everything&rsquo;s done, all that&rsquo;s left to do is to flash the firmware onto the ESPer board. To do that:</p>
+
+<ul>
+<li>Launch the <strong>mos tool</strong>. In my case, that is Linux, it is opened by entering <code>mos</code> in the terminal. This will open up the <strong>mos Web UI</strong> in your web browser.
+<img src="/images/mos/device.png" alt="Device Configuration" /></li>
+<li>In the UI, set the <strong>Arduino Serial Port</strong>, device as <strong>esp32</strong> and an app of your choice. Then click on <code>Flash</code>.
+<img src="/images/mos/flash.png" alt="Flashing" /></li>
+<li>After a few moments, the UI will <strong>attempt to connect</strong> to the device. In this interval, you&rsquo;ll have to get off from your keyboard to the ESPer board. To connect the device to the UI, we&rsquo;ll have to make it enter <strong>Download Mode</strong>. This is done by pressing and holding the <strong>Boot</strong> button, and then the <strong>Reset</strong> button. After a second, release the <strong>Reset</strong> button first and then the <strong>Boot</strong> button. You&rsquo;ll see that the UI will have begun the flashing process by then.</li>
+<li>Once the message <strong>&ldquo;All done&rdquo;</strong> pops up in the console. Close the web browser and terminate the <code>mos</code> command by pressing <code>Ctrl+C</code> in the terminal.</li>
+</ul>
+
+<p>This concludes the flashing process.</p>
+
+<hr />
+
+<h1 id="configuring-the-wifi-settings">Configuring the WiFi Settings</h1>
+
+<p><img src="/images/mos/wifi.png" alt="WiFi" />
+So we have flashed the Mongoose OS firmware in our ESPer board now, but we still haven&rsquo;t configured the <strong>WiFi Settings</strong> which is the most important feature of IoT devices since they have to be connected to the internet. To configure WiFi:</p>
+
+<ul>
+<li>Press the <strong>Reset</strong> button on the ESPer board. Wait for a minute or so to let the MCU boot up.</li>
+<li>Launch the <strong>mos tool</strong> again and select your <strong>Arduino Serial Port</strong>. You&rsquo;ll notice that the UI automatically detects that the Mongoose OS firmware is installed on the device and asks you to enter the WiFi settings.</li>
+<li>Enter the WiFi settings and that&rsquo;s it.</li>
+</ul>
+
+<hr />
+
+<h1 id="the-sky-s-the-limit">The Sky&rsquo;s the Limit</h1>
+
+<p>Now that you&rsquo;ve installed an OS on your ESPer board or ESP32, you can do almost anything with it, be it a <strong>mini Arduino</strong> or a <strong>WiFi server</strong>, you name it. So go ahead and start coding and making. The video below shows my ESPer flashed with the
+<strong>Blink Code</strong>.
+<div class="youtube container">
+    <iframe class="youtube" type="text/html"
+        src="https://www.youtube.com/embed/wEwncJ5RnA0"
+        allowfullscreen frameborder="0">
+    </iframe>
+</div>
+</p>
+
+<blockquote>
+<p>The video was recorded before this post was published that is why there is no silkscreen on the ESPer board.</p>
+</blockquote>
+
+<p>So that&rsquo;s how you install <strong>Mongoose OS</strong> on your <strong>ESPer</strong> board. You may refer to the official documentation to get acquainted with the UI and use it effectively in your projects. This is the link: <a href="https://mongoose-os.com/docs/">Mongoose OS Documentation</a></p>
+
+<p>If you feel that I missed something, please use the <strong>Disqus Comments</strong> below to let me know. Same goes for the improvement suggestions.</p>
+
+<p>A huge thanks to <strong><a href="https://www.dfrobot.com">DFRobot</a></strong> for sending me awesome stuff.</p>
+
+<p>Thanks for reading!  😀</p>
+
+<p><strong>Keep Making!</strong></p>
+
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			
+				
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+				
+			
+		</section>
+		
+		<section class="ui secondary attached segment share row box">
+			<div class="author shrink flexbox">
+	
+	<img class="avatar" src="http://work.baiqp.com/images/avatar.jpg">
+	
+</div>
+<div class="info shrink flexbox"> 
+	
+	<p class="name">Qipeng Bai</p>
+	
+	<p class="desc">New World</p>		
+</div>
+<div class="spacer both flexbox"></div>
+<section class="buttons row box none flexbox">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;Mongoose OS on ESPer  http:\/\/work.baiqp.com\/post\/mos\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+
+		</section>
+		
+
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>So, Who Am I?</h1>
+
+<hr />
+
+<p><br>
+I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux. I feel the inner urge to contribute something to the Internet because I love writing and I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+
+<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are! I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page. Making stuff is just one of the things I love the most.</p>
+
+<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
+
+<p>Curious about me? Use the social links above to check out my profiles.</p>
+
+<p>You can also support me on <a href="https://patreon.com/UtkarshVerma" target="_blank">Patreon</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+		anchors.add('section.ui.secondary.top.black.attached.segment article h1');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h2');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h3');
+	
+</script>
+
+</body>
+
+</html>
