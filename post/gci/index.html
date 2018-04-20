@@ -81,7 +81,7 @@ It all began while I was returning from an outing on 5 December, 2017 and was se
 	  dreamBodyBgSwitch.push(dreamBg);
 	  setBackground(dreamBack, dreamBg);
 	} else {
-	  var blurEff =  3 , images = "", randomNumber = Math.floor(Math.random() * images.length);
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
 	  bgImage = "url(" + images[randomNumber] + ")";
 	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
 	  var target = document.getElementsByClassName("bg")[0];
