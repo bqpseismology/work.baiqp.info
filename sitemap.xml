@@ -3,102 +3,102 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://work.baiqp.com/post/mos/</loc>
+    <loc>http://work.baiqp.info/post/mos/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/post/netjsonconfig/</loc>
+    <loc>http://work.baiqp.info/post/netjsonconfig/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/post/gci/</loc>
+    <loc>http://work.baiqp.info/post/gci/</loc>
     <lastmod>2018-01-13T10:29:23+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/404/</loc>
+    <loc>http://work.baiqp.info/404/</loc>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/about/</loc>
+    <loc>http://work.baiqp.info/about/</loc>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/categories/blogging/</loc>
-    <lastmod>2018-01-13T10:29:23+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://work.baiqp.com/categories/</loc>
+    <loc>http://work.baiqp.info/categories/blogging/</loc>
     <lastmod>2018-01-13T10:29:23+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/django/</loc>
+    <loc>http://work.baiqp.info/categories/</loc>
+    <lastmod>2018-01-13T10:29:23+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://work.baiqp.info/tags/django/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/categories/electronics/</loc>
+    <loc>http://work.baiqp.info/categories/electronics/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/esp32/</loc>
+    <loc>http://work.baiqp.info/tags/esp32/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/google-code-in/</loc>
+    <loc>http://work.baiqp.info/tags/google-code-in/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/iot/</loc>
+    <loc>http://work.baiqp.info/tags/iot/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/mongoose-os/</loc>
+    <loc>http://work.baiqp.info/tags/mongoose-os/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/openwisp/</loc>
+    <loc>http://work.baiqp.info/tags/openwisp/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/post/</loc>
+    <loc>http://work.baiqp.info/post/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/categories/programming/</loc>
+    <loc>http://work.baiqp.info/categories/programming/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/</loc>
+    <loc>http://work.baiqp.info/</loc>
     <lastmod>2018-01-28T18:59:43+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://work.baiqp.com/tags/</loc>
+    <loc>http://work.baiqp.info/tags/</loc>
     <lastmod>2018-01-14T14:28:40+05:30</lastmod>
     <priority>0</priority>
   </url>
