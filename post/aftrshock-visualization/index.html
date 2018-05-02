@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="地震学中的可视化工作多种多样，这里我们首先对新西兰地震余震震中随时间演化的可视化给出一个示例。
+
+" />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.info//images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.info/post/aftrshock-visualization/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column">	
+			<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class=" title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon down"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class=" content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				新西兰地震余震可视化
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Jan 2, 2017</span></div>
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://work.baiqp.info/post/aftrshock-visualization/#disqus_thread"></a></span></div>
+					<div><span><i class="clock outline icon"></i>2 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Apr 15, 2018</span></div>
+			</div>
+			<hr>
+			
+			
+			<div class="toc">
+				<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#aftershock">Aftershock</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+			</div>
+			
+			
+			<article class="post-content twemoji">
+				<hr />
+
+<p>地震学中的可视化工作多种多样，这里我们首先对新西兰地震余震震中随时间演化的可视化给出一个示例。</p>
+
+<p></p>
+
+<p>Python 具有十分丰富的扩展库来进行可视化工作，例如Matplotlib, Mayavi, VTK等等，这里我们主要关注的是地震学的数据可视化。</p>
+
+<h3 id="aftershock">Aftershock</h3>
+
+<blockquote>
+<p>The smaller aftershocks following a mainshock have a characteristic distribution in size and time. As Fig. 4.5-9, most aftershock occur on or near the mainshock&rsquo;s fault plane, so their location are used to distinguish between the fault and auxiliary planes and to estimate the fault area.</p>
+
+<p><cite>&ndash; Seth Stein, An Introduction to Seismology Earthquake and Earth Structure </cite></p>
+</blockquote>
+
+<p>作为例子，我们先选取 <strong>2016-11-20-M7.8新西兰地震</strong> 作为主震，从<code>USGS earthquake feed</code>下载csv格式的余震目录数据，
+这里使用了Python3的 <code>urllib</code> 包作为获取目录的模块，原始的csv文件是后发生地震在前，为了画出随主震后时间演化的地震，我们将数据从后往前取值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;toolbar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="c1">#from  matplotlib.animation import FuncAnimation</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="kn">as</span> <span class="nn">animation</span>
+
+
+<span class="c1"># Open the earthquake data</span>
+<span class="c1"># -------------------------</span>
+<span class="c1"># -&gt; http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</span>
+<span class="n">feed</span> <span class="o">=</span> <span class="s2">&#34;http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/&#34;</span>
+
+<span class="c1"># Significant earthquakes in the past 30 days</span>
+<span class="c1"># url = urllib.request.urlopen(feed + &#34;significant_month.csv&#34;)</span>
+
+<span class="c1"># Earthquakes of magnitude &gt; 4.5 in the past 30 days</span>
+<span class="c1"># url = urllib.request.urlopen(feed + &#34;4.5_month.csv&#34;)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">feed</span> <span class="o">+</span> <span class="s2">&#34;4.5_week.csv&#34;</span><span class="p">)</span>
+
+<span class="c1"># Earthquakes of magnitude &gt; 2.5 in the past 30 days</span>
+<span class="c1"># url = urllib.request.urlopen(feed + &#34;2.5_month.csv&#34;)</span>
+<span class="c1"># url = urllib.request.urlopen(feed + &#34;2.5_week.csv&#34;)</span>
+
+<span class="c1"># Earthquakes of magnitude &gt; 1.0 in the past 30 days</span>
+<span class="c1"># url = urllib.request.urlopen(feed + &#34;1.0_month.csv&#34;)</span>
+
+<span class="c1"># Set earthquake data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span>  <span class="nb">float</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                               <span class="p">(</span><span class="s1">&#39;magnitude&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">E</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">E</span><span class="p">[</span><span class="s1">&#39;magnitude&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span>     <span class="nb">float</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;growth&#39;</span><span class="p">,</span>   <span class="nb">float</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span>    <span class="nb">float</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
+
+<span class="c1"># Basemap projection</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;mill&#39;</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.40&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.60&#39;</span><span class="p">)</span>
+<span class="n">scat</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                  <span class="n">edgecolors</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+    <span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+    <span class="n">P</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">P</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span>
+
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="s1">&#39;magnitude&#39;</span><span class="p">][</span><span class="n">current</span><span class="p">]</span>
+    <span class="n">P</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="o">*</span><span class="n">E</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">][</span><span class="n">current</span><span class="p">])</span>
+    <span class="n">P</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">P</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+
+    <span class="k">if</span> <span class="n">magnitude</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+    <span class="n">scat</span><span class="o">.</span><span class="n">set_edgecolors</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+    <span class="n">scat</span><span class="o">.</span><span class="n">set_facecolors</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">scat</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">])</span>
+    <span class="n">scat</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Earthquakes &gt; 4.5 in the last 30 days&#34;</span><span class="p">)</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;line.gif&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;imagemagick&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>演示效果：</p>
+
+<p><img src="/images/2017-01-02-aftershock-visualization/10km_NewZealand.gif" alt="10km New Zealand aftershock " width="100%" ></img></p>
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+				
+			
+		</section>
+		
+		<section class="ui secondary attached segment share row box">
+			<div class="author shrink flexbox">
+	
+	<img class="avatar" src="http://work.baiqp.info//images/avatar.jpg">
+	
+</div>
+<div class="info shrink flexbox"> 
+	
+	<p class="name">Qipeng Bai</p>
+	
+	<p class="desc">New World</p>		
+</div>
+<div class="spacer both flexbox"></div>
+<section class="buttons row box none flexbox">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;新西兰地震余震可视化  http:\/\/work.baiqp.info\/post\/aftrshock-visualization\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+
+		</section>
+		
+
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>关于我</h1>
+
+<hr />
+
+<p><br>
+大家好，我是一名 USTC(University of Science and Technology of China) 的在读博士研究生。主要研究领域是地震学，有相关问题欢迎与我邮件讨论，请发至：<a href="mailto:bqpseismology@gmail.com">bqpseismology@gmail.com</a></p>
+
+<p>You can also support me on <a href="http://blog.baiqp.info/donations" target="_blank">捐赠支持</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+		anchors.add('section.ui.secondary.top.black.attached.segment article h1');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h2');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h3');
+	
+</script>
+
+</body>
+
+</html>

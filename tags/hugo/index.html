@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="Just a work site for collect the daily." />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.info//images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.info/tags/hugo/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	<div class="item">
+		
+		<i class="disabled inverted big chevron circle left icon" title="Previous page"></i>
+  	
+  </div>
+	<div class="item">
+		
+		<a href="/tags/hugo/page/2/">
+			<i class="inverted big link chevron circle right icon" title="Next page"></i>
+		</a>
+		
+	</div>
+	
+	
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile fifteen wide tablet four wide computer column">
+		<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class="active title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon up"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class="active content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet eleven wide computer column post-list">
+		<div class="ui two stackable cards">
+			
+	
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.info/"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.info/post/subdomain-githubpages/>二级域名绑定 GitHub Pages</a></h3>
+	<div class="intro twemoji"></div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Apr 18, 2018</span></div>
+		<div><span><i class="clock icon"></i>2 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.info/"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.info/post/hugo-centos/>Hugo安装配置</a></h3>
+	<div class="intro twemoji"><br><br></div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Apr 17, 2018</span></div>
+		<div><span><i class="clock icon"></i>2 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.info/"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.info/post/godaddy-githubpages/>顶级域名绑定 GitHub Pages</a></h3>
+	<div class="intro twemoji"><br><br></div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Apr 17, 2018</span></div>
+		<div><span><i class="clock icon"></i>1 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+	
+		<article class="blog-card none flexbox">
+<img class="image" src="http://work.baiqp.info/images/mos/intro-small.jpeg"></img>
+<div class="title-content twemoji">
+	<h3><a class="title" href=http://work.baiqp.info/post/mos/>Mongoose OS on ESPer</a></h3>
+	<div class="intro twemoji">A tutorial on how to install Mongoose OS on ESPer.</div>
+</div>
+<div class="utility-info">
+	<ul class="utility-list">
+		
+		<div><span><i class="calendar icon"></i>Jan 28, 2018</span></div>
+		<div><span><i class="clock icon"></i>5 min read</span></div>
+	</ul>
+</div>
+<div class="color-overlay"></div>
+</article>
+
+	
+
+
+		</div>
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>关于我</h1>
+
+<hr />
+
+<p><br>
+大家好，我是一名 USTC(University of Science and Technology of China) 的在读博士研究生。主要研究领域是地震学，有相关问题欢迎与我邮件讨论，请发至：<a href="mailto:bqpseismology@gmail.com">bqpseismology@gmail.com</a></p>
+
+<p>You can also support me on <a href="http://blog.baiqp.info/donations" target="_blank">捐赠支持</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+</script>
+
+</body>
+
+</html>

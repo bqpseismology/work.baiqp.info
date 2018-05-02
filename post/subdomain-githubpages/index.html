@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="申请到顶级域名后，可以将二级域名和 GitHub Pages 的项目仓库进行绑定，做到分仓库管理网站。这样可以在不修改主站的情况下对不同工作进行分类汇总。
+
+" />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.info//images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.info/post/subdomain-githubpages/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column">	
+			<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class=" title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon down"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class=" content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				二级域名绑定 GitHub Pages
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Apr 18, 2018</span></div>
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://work.baiqp.info/post/subdomain-githubpages/#disqus_thread"></a></span></div>
+					<div><span><i class="clock outline icon"></i>2 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Apr 18, 2018</span></div>
+			</div>
+			<hr>
+			
+			
+			<div class="toc">
+				<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-dns-二级域名设置">1. DNS 二级域名设置</a></li>
+<li><a href="#2-绑定-github-pages">2. 绑定 GitHub Pages</a>
+<ul>
+<li><a href="#2-2-项目撰写注意事项">2.2 项目撰写注意事项</a></li>
+</ul></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul></li>
+</ul>
+</nav>
+			</div>
+			
+			
+			<article class="post-content twemoji">
+				<hr />
+
+<p>申请到顶级域名后，可以将二级域名和 GitHub Pages 的项目仓库进行绑定，做到分仓库管理网站。这样可以在不修改主站的情况下对不同工作进行分类汇总。</p>
+
+<p></p>
+
+<h2 id="1-dns-二级域名设置">1. DNS 二级域名设置</h2>
+
+<p>在 GoDaddy 域名管理中修改 DNS 如下：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名称</th>
+<th align="left">值</th>
+<th align="left">TTL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left">@</td>
+<td align="left">192.30.252.153</td>
+<td align="left">1小时</td>
+</tr>
+
+<tr>
+<td align="left">CNAME</td>
+<td align="left">www</td>
+<td align="left">@</td>
+<td align="left">1小时</td>
+</tr>
+
+<tr>
+<td align="left">CNAME</td>
+<td align="left">blog</td>
+<td align="left">@</td>
+<td align="left">1小时</td>
+</tr>
+
+<tr>
+<td align="left">&hellip;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="2-绑定-github-pages">2. 绑定 GitHub Pages</h2>
+
+<p>在二级域名设置好后，在 GitHub 页面上传建成的网站，这里可以使用三种方式放置页面，<code>master</code>、 <code>gh-pages</code>、 <code>master/docs</code>，推荐使用第二种方式。</p>
+
+<p>项目仓库根目录下放置一 <code>CNAME</code> 文件，里面写二级域名，例如 <code>blog.baiqp.info</code>，然后在仓库设置页面调整好 GitHub Pages 的设置。等待一定时间提醒配置好后进入页面。</p>
+
+<p>这里列出常用的几个二级链接：</p>
+
+<ol>
+<li><a href="http://blog.baiqp.info">blog</a></li>
+<li><a href="http://music.baipq.info">music</a></li>
+<li><a href="http://wiki.baiqp.info">wiki</a></li>
+</ol>
+
+<hr />
+
+<h3 id="2-2-项目撰写注意事项">2.2 项目撰写注意事项</h3>
+
+<p>因为这里使用的 GitHub Pages 进行发布，需要符合标准，请仔细阅读<a href="https://help.github.com/articles/troubleshooting-github-pages-builds/">错误帮助手册</a>，完整的 GitHub 帮助手册请参考 <a href="https://help.github.com/">Help github</a>。格式有错误会导致发布报错。</p>
+
+<ul>
+<li>Markdown 语法参考<sup><a href="#ref01">[1]</a></sup></li>
+<li>图片引用的名称和 <code>images/</code> 下的命名保持一致；</li>
+<li>表格的格式要注意，具体格式如下：
+使用 <code>Markdown</code> 画的表格，如下表（<strong>冒号表示对齐</strong>）</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">col. 1</th>
+<th align="center">col. 2</th>
+<th align="right">col. 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+
+<tr>
+<td align="left">col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+
+<tr>
+<td align="left">zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+
+<p>或</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">col. 1</th>
+<th align="left">col. 2</th>
+<th align="left">col. 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">col 3 is</td>
+<td align="left">right-aligned</td>
+<td align="left">$1600</td>
+</tr>
+
+<tr>
+<td align="left">col 2 is</td>
+<td align="left">centered</td>
+<td align="left">$12</td>
+</tr>
+
+<tr>
+<td align="left">zebra stripes</td>
+<td align="left">are neat</td>
+<td align="left">$1</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>在上传到 GitHub Pages 项目 <code>gh-pages</code> 时，可以先清空远程分支，再上传（效果还要验证）；</li>
+</ul>
+
+<hr />
+
+<h2 id="参考资料">参考资料</h2>
+
+<ol>
+<li><a id="ref01"><a href="https://blog.olowolo.com/example-site/post/even-preview/#ref01">Even Markdown帮助</a></a></li>
+</ol>
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+				
+			
+		</section>
+		
+		<section class="ui secondary attached segment share row box">
+			<div class="author shrink flexbox">
+	
+	<img class="avatar" src="http://work.baiqp.info//images/avatar.jpg">
+	
+</div>
+<div class="info shrink flexbox"> 
+	
+	<p class="name">Qipeng Bai</p>
+	
+	<p class="desc">New World</p>		
+</div>
+<div class="spacer both flexbox"></div>
+<section class="buttons row box none flexbox">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;二级域名绑定 GitHub Pages  http:\/\/work.baiqp.info\/post\/subdomain-githubpages\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+
+		</section>
+		
+
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>关于我</h1>
+
+<hr />
+
+<p><br>
+大家好，我是一名 USTC(University of Science and Technology of China) 的在读博士研究生。主要研究领域是地震学，有相关问题欢迎与我邮件讨论，请发至：<a href="mailto:bqpseismology@gmail.com">bqpseismology@gmail.com</a></p>
+
+<p>You can also support me on <a href="http://blog.baiqp.info/donations" target="_blank">捐赠支持</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+		anchors.add('section.ui.secondary.top.black.attached.segment article h1');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h2');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h3');
+	
+</script>
+
+</body>
+
+</html>

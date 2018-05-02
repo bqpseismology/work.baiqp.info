@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="通常在处理地震数据（尤其是SAC数据）时需要计算不同时间戳（Time Stamp），本文给出一些示例。
+
+" />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.info//images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.info/post/date-process/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column">	
+			<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class=" title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon down"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class=" content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/collections-books/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记汇总</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>读书笔记《超负荷的大脑》</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6">博客框架</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/markdown-basic-grammar/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>MarkDown 基本语法</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mkdocs-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>使用 MkDocs 撰写文档手册</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/subdomain-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>二级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hugo-centos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Hugo安装配置</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/godaddy-githubpages/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>顶级域名绑定 GitHub Pages</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/hello-world/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>你好！</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/southkorea-earthquake/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>韩国地震CAP机制解</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/aftrshock-visualization/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新西兰地震余震可视化</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/date-process/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>地震时间处理</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				地震时间处理
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Dec 30, 2016</span></div>
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://work.baiqp.info/post/date-process/#disqus_thread"></a></span></div>
+					<div><span><i class="clock outline icon"></i>2 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Apr 13, 2018</span></div>
+			</div>
+			<hr>
+			
+			
+			<div class="toc">
+				<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#c-中的时间计算-转换">C 中的时间计算、转换</a></li>
+<li><a href="#shell中的时间格式转换-时差计算">Shell中的时间格式转换、时差计算</a></li>
+<li><a href="#python中的date运算">Python中的date运算；</a></li>
+<li><a href="#perl中的date运算">Perl中的date运算；</a></li>
+<li><a href="#reference">Reference:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+			</div>
+			
+			
+			<article class="post-content twemoji">
+				<hr />
+
+<p>通常在处理地震数据（尤其是SAC数据）时需要计算不同时间戳（Time Stamp），本文给出一些示例。</p>
+
+<p></p>
+
+<h3 id="c-中的时间计算-转换">C 中的时间计算、转换</h3>
+
+<p>地震的时间处理，主要是对不同格式的转换，这里我先给出一个转换的C程序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-C" data-lang="C"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">day</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="n">sum</span><span class="p">,</span><span class="n">leap</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d-%d-%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">year</span><span class="p">,</span><span class="o">&amp;</span><span class="n">month</span><span class="p">,</span><span class="o">&amp;</span><span class="n">day</span><span class="p">);</span>
+<span class="k">switch</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="cm">/*先计算某月以前月份的总天数*/</span>
+<span class="p">{</span>
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">31</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">59</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">90</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">5</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">120</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">6</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">151</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">7</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">181</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">8</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">212</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">9</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">243</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">10</span><span class="o">:</span><span class="n">sum</span><span class="o">=</span><span class="mi">273</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span>
+<span class="p">}</span>  
+<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>一般来说，时间处理主要是进行以下几件工作：</p>
+
+<ul>
+<li>时间格式转换</li>
+<li>时间差计算</li>
+<li>时间统计-程序运行</li>
+</ul>
+
+<p>地震学中的问题主要是时间的格式转换和时差计算，</p>
+
+<h3 id="shell中的时间格式转换-时差计算">Shell中的时间格式转换、时差计算</h3>
+
+<p>date通常情况下可以分： <code>年月日 时分秒</code> 一般情况下需要对date做四则运算。shell中命令的空格要严格控制，等号两边无空格，有多余空格会出现错误，这中限制在日期date命令中就比较明显。</p>
+
+<p>命令格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">date <span class="o">[</span>-u<span class="o">]</span> <span class="o">[</span>-d datestr<span class="o">]</span> <span class="o">[</span>-s datestr<span class="o">]</span> <span class="o">[</span>--utc<span class="o">]</span> <span class="o">[</span>--universal<span class="o">]</span> <span class="o">[</span>--date<span class="o">=</span>datestr<span class="o">]</span> <span class="o">[</span>--set<span class="o">=</span>datestr<span class="o">]</span> <span class="o">[</span>--help<span class="o">]</span> <span class="o">[</span>-version<span class="o">]</span> <span class="o">[</span>+FORMAT<span class="o">]</span> <span class="o">[</span>MMDDhhmm<span class="o">[[</span>CC<span class="o">]</span>YY<span class="o">][</span>.ss<span class="o">]]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>通常我们拿到的时间格式会有以下几种：</p>
+
+<ul>
+<li>CSV: <code>%Y-%m-%dT%H:%M:%SZ</code> 例如：<code>2016-10-21T05:07:23.000Z</code></li>
+<li>SAC: <code>%Y %j %H %M %S</code> 例如： <code>2016 295 05 07 23.00</code>，或者是 <code>saclst kzdate kztime f sacfile</code> 得到 <code>%Y/%m/%d %H:%M:%S</code> 的时间格式</li>
+<li>其他: 例如 <code>2016年 10月 21日 星期五 05：07：23 CST</code>等</li>
+</ul>
+
+<p>date显示指定格式的时间 <code>date -d &quot;STRING&quot; +&quot;FORMAT&quot;</code>，尽量加上双引号，避免空格。由此我们可以这样计算，取出时间处理成<code>%Y-%m-%d %H:%M:%S</code>格式，然后转换成自 <code>UTC</code> 时间<code>1970-01-01 00:00:00</code> 以来所有时间的秒数，然后通过秒数进行四则运算，最后再转换为想要的格式。这里暂且定义 <code>%Y-%m-%d %H:%M:%S</code> 为标准格式，其他时间都以此为对比标准。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/bash
+</span><span class="cp"></span><span class="nv">catalog</span><span class="o">=</span>query.csv
+<span class="nv">outfile</span><span class="o">=</span>LocalTime
+<span class="nv">localtimezone</span><span class="o">=</span><span class="nv">$1</span>
+
+gawk -F <span class="s2">&#34;,&#34;</span> <span class="s1">&#39;NR&gt;=2 {print $1}&#39;</span> <span class="nv">$catalog</span> <span class="p">|</span> sed <span class="s1">&#39;s/Z/ /g&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/T/ /g&#39;</span> &gt; StandardTime
+<span class="nb">echo</span> -e <span class="s2">&#34;\033[35m\tStandard time: \033[0m&#34;</span>
+cat StandardTime
+cat StandardTime <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line
+<span class="k">do</span>
+        <span class="nv">UTCtimestamp</span><span class="o">=</span><span class="sb">`</span>date -d <span class="s2">&#34;</span><span class="nv">$line</span><span class="s2">&#34;</span> +%s<span class="sb">`</span>
+        <span class="nv">localtimestamp</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$UTCtimestamp</span> + <span class="nv">$localtimezone</span> <span class="se">\*</span> <span class="m">60</span> <span class="se">\*</span> <span class="m">60</span> <span class="p">|</span> bc<span class="sb">`</span> <span class="c1"># oneday=86400(s)
+</span><span class="c1"></span>        <span class="nb">echo</span> <span class="sb">`</span>date -d @<span class="nv">$localtimestamp</span> +<span class="s2">&#34;%Y %j %H %M %S&#34;</span><span class="sb">`</span> &gt;&gt; LocalTime
+<span class="k">done</span>
+<span class="nb">echo</span> -e <span class="s2">&#34;\033[35m\tLocal time: \033[0m&#34;</span>
+cat LocalTime
+rm -rf StandardTime</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">2</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span>
+        <span class="nb">echo</span> <span class="s1">&#39;Usage: SAC2standTime.sh filepath timezone(hour)&#39;</span>
+<span class="k">else</span>
+<span class="nv">sacpath</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">localtimezone</span><span class="o">=</span><span class="nv">$2</span> <span class="c1"># 指定时区校正值,
+</span><span class="c1"></span><span class="nv">sac</span><span class="o">=</span><span class="s2">&#34;*.U&#34;</span>
+<span class="nb">cd</span> <span class="nv">$sacpath</span>/
+<span class="nv">line</span><span class="o">=</span><span class="sb">`</span>saclst kzdate kztime f <span class="nv">$sac</span> <span class="p">|</span> head -1 <span class="p">|</span> gawk <span class="s1">&#39;{split($2,aa,&#34;/&#34;);print aa[1]&#34;-&#34;aa[2]&#34;-&#34;aa[3],$3}&#39;</span><span class="sb">`</span>
+<span class="nv">localtimestamp</span><span class="o">=</span><span class="sb">`</span>date -d <span class="s2">&#34;</span><span class="nv">$line</span><span class="s2">&#34;</span> +%s<span class="sb">`</span>
+<span class="nv">UTCtimestamp</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$localtimestamp</span> - <span class="nv">$localtimezone</span> <span class="se">\*</span> <span class="m">60</span> <span class="se">\*</span> <span class="m">60</span> <span class="p">|</span> bc<span class="sb">`</span> <span class="c1"># oneday=86400(s) onehour=3600(s)
+</span><span class="c1"></span><span class="nb">echo</span> <span class="sb">`</span>date -d @<span class="nv">$UTCtimestamp</span> +<span class="s2">&#34;%Y %j %H %M %S&#34;</span><span class="sb">`</span>
+<span class="k">fi</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>通过上述两个shell脚本将标准时间和SAC中的时间进行互相转换，有效！</p>
+
+<h3 id="python中的date运算">Python中的date运算；</h3>
+
+<h3 id="perl中的date运算">Perl中的date运算；</h3>
+
+<hr />
+
+<h3 id="reference">Reference:</h3>
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+
+<a class="ui label" href="/tags/mkdocs" title="mkdocs">mkdocs</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/shell" title="shell">shell</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86" title="数据处理">数据处理</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+				
+			
+		</section>
+		
+		<section class="ui secondary attached segment share row box">
+			<div class="author shrink flexbox">
+	
+	<img class="avatar" src="http://work.baiqp.info//images/avatar.jpg">
+	
+</div>
+<div class="info shrink flexbox"> 
+	
+	<p class="name">Qipeng Bai</p>
+	
+	<p class="desc">New World</p>		
+</div>
+<div class="spacer both flexbox"></div>
+<section class="buttons row box none flexbox">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;地震时间处理  http:\/\/work.baiqp.info\/post\/date-process\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+
+		</section>
+		
+
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>关于我</h1>
+
+<hr />
+
+<p><br>
+大家好，我是一名 USTC(University of Science and Technology of China) 的在读博士研究生。主要研究领域是地震学，有相关问题欢迎与我邮件讨论，请发至：<a href="mailto:bqpseismology@gmail.com">bqpseismology@gmail.com</a></p>
+
+<p>You can also support me on <a href="http://blog.baiqp.info/donations" target="_blank">捐赠支持</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+		anchors.add('section.ui.secondary.top.black.attached.segment article h1');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h2');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h3');
+	
+</script>
+
+</body>
+
+</html>

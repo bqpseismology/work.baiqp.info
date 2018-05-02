@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on Qipeng Bai&#39;s Site</title>
+    <link>http://work.baiqp.info/tags/book/</link>
+    <description>Recent content in Book on Qipeng Bai&#39;s Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Apr 2018 16:34:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://work.baiqp.info/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《超负荷的大脑》阅读笔记</title>
+      <link>http://work.baiqp.info/post/2018-04-30-book-working-memory/</link>
+      <pubDate>Mon, 30 Apr 2018 16:34:36 +0800</pubDate>
+      
+      <guid>http://work.baiqp.info/post/2018-04-30-book-working-memory/</guid>
+      <description>《超负荷的大脑·信息过载与工作记忆的极限》是瑞典医学、哲学博士托克尔·克林贝里的一本关于大脑进化 的讨论、神经科学的历史、最前沿的科研方法学、</description>
+    </item>
+    
+  </channel>
+</rss>

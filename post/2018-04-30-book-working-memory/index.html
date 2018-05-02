@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Qipeng Bai&#39;s Site</title>
+
+
+	
+	<meta name="author" content="Qipeng Bai" />
+	<meta name="description" content="《超负荷的大脑·信息过载与工作记忆的极限》是瑞典医学、哲学博士托克尔·克林贝里的一本关于大脑进化的讨论、神经科学的历史、 最前沿的科研方法学、" />
+
+
+
+<meta name="generator" content="Hugo 0.38.2" />
+
+
+<link rel="shortcut icon" href="http://work.baiqp.info//images/favicon.ico">
+
+
+<link rel="canonical" href="http://work.baiqp.info/post/2018-04-30-book-working-memory/" />
+<link rel="alternative" href="/index.xml" title="Qipeng Bai&#39;s Site" type="application/atom+xml" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
+
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+	var enabledPost=true 
+	var colorBG= true  
+	var enabledDimmer =  true 
+	var shToken=""
+	var shDomains=""    
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+
+</head>
+
+<body>
+	<div class="bg"><script>
+	function connect(a) {
+	  for (var b = "", c = 0; c < a.length; c++) {
+		b = c !== a.length - 1 ? b + (a[c] + ", ") : b + a[c];
+	  }
+	  return b;
+	}
+	function setBackground(a, b) {
+	  a.css({background:b[0]});
+	  a.css({background:"linear-gradient(to right, " + connect(b) + ")"});
+	}
+	function getRandomInt(a, b) {
+	  a = Math.ceil(a);
+	  b = Math.floor(b);
+	  for (var c;;) {
+		if (c = Math.floor(Math.random() * (b - a)) + a, c !== dreamPrevBgIndex) {
+		  dreamPrevBgIndex = c;
+		  break;
+		}
+	  }
+	  return c;
+	}
+	var dreamBodyBgSwitchIndex = 0;
+	if (colorBG) {
+	  var dreamBGGradients = [[], ["#40e0d0", "#ff8c00", "#ff0080"], ["#3e5151", "#decba4"], ["#11998e", "#38ef7d"], ["#108dc7", "#ef8e38"], ["#fc5c7d", "#6a82fb"], ["#fc466b", "#3f5efb"], ["#c94b4b", "#4b134f"], ["#23074d", "#cc5333"]], dreamBody = $(".bg"), dreamFront = $(".pusher .front"), dreamBack = $(".pusher .back"), dreamPrevBgIndex = 0, dreamBodyBgSwitch = [], dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamFront, dreamBg);
+	  setBackground(dreamBody, dreamBg);
+	  dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)];
+	  dreamBodyBgSwitch.push(dreamBg);
+	  setBackground(dreamBack, dreamBg);
+	} else {
+	  var blurEff =  3 , images = ["/images/bg1.jpeg","/images/bg2.jpeg","/images/bg3.jpeg","/images/bg4.jpeg","/images/bg5.jpeg","/images/bg6.jpeg","/images/bg7.jpeg"], randomNumber = Math.floor(Math.random() * images.length);
+	  bgImage = "url(" + images[randomNumber] + ")";
+	  console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length - 1));
+	  var target = document.getElementsByClassName("bg")[0];
+	  target.setAttribute("style", "background-image:" + bgImage + " !important; filter:blur(" + blurEff + "px)");
+	}
+	;
+</script>
+</div>
+	<div id="sidebar" class="ui sidebar inverted vertical menu left column box">
+	<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+	
+	
+	<section class="ui attached center aligned inverted segment sidebar-dream-tags shrink flexbox">
+		
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+	</section>
+	
+	
+	
+	
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+				
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blog">blog</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-05-01-critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-30-book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>《超负荷的大脑》阅读笔记</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-30-academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+
+
+		</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment shrink flexbox">
+		
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+	</section>
+</div>
+
+	<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+				
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+	
+	<div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title="Archive"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title="All Tags"></i>
+		</a>
+	</div>
+	
+	
+	
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title="All Categories"></i>
+		</a>
+  </div>
+	
+
+	
+	
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+ 
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column">	
+			<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<section id="author" class="ui top attached center aligned inverted segment shrink flexbox">
+	<div class="ui small circular image">
+		
+		<img src="/images/avatar.jpg">
+		
+	</div>
+	<h3 class="ui header">Qipeng Bai<div class="sub header">New World</div>
+	</h3>
+</section>
+
+		<div class=" title header-title">
+			
+			<div id="tag-category-pop" class="ui red right corner label">		
+				<i class="link hand point icon down"title="Click this to pop tags and categories"></i>		
+			</div>
+			
+		</div>
+		<div id="tag-category" class=" content">
+			
+			
+			<section class="ui attached center aligned inverted segment dream-tags none flexbox">
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+
+			</section>
+			
+			
+			
+			
+			<section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+					
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/blog">blog</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-20-overleaf-latex-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018 04 20 Overleaf Latex Manual</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/gci/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Google Code-in with OpenWISP</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/electronics">electronics</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/mos/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Mongoose OS on ESPer</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/others">others</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-05-01-critical-thinking-template/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>批判性思维模版</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-30-book-working-memory/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>《超负荷的大脑》阅读笔记</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/programming">programming</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/netjsonconfig/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Testing &#34;django-netjsonconfig&#34;</p>
+		</div>
+	</a>
+</div>
+
+	
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6">地震学</a>     	
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/cap-captel-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAPtel 地震实例说明</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-30-academic-report-zhurixiang/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2018年4月25日 朱日祥院士 学术报告</p>
+		</div>
+	</a>
+</div>
+
+<div class="content">    		
+	<a class="item" href="http://work.baiqp.info/post/2018-04-21-cap-gcapjoint-manual/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>CAP gCAPjoint Manual</p>
+		</div>
+	</a>
+</div>
+
+
+
+			</div>
+			</section>
+			
+			
+		</div>
+		<section id="footer" class="ui bottom attached center aligned inverted segment">
+			
+<p>© 2018 Qipeng Bai&#39;s Site</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+
+		</section>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				《超负荷的大脑》阅读笔记
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Apr 30, 2018</span></div>
+					<div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://work.baiqp.info/post/2018-04-30-book-working-memory/#disqus_thread"></a></span></div>
+					<div><span><i class="clock outline icon"></i>8 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Apr 30, 2018</span></div>
+			</div>
+			<hr>
+			
+			
+			<div class="toc">
+				<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#第一章-引言-石器时代的大脑遭遇信息洪流">第一章 引言：石器时代的大脑遭遇信息洪流</a></li>
+<li><a href="#第二章-信息门户">第二章 信息门户</a></li>
+<li><a href="#第三章-心智工作台">第三章 心智工作台</a></li>
+<li><a href="#第四章-工作记忆的模型">第四章 工作记忆的模型</a></li>
+<li><a href="#第五章-大脑与神奇数字7">第五章 大脑与神奇数字7</a></li>
+<li><a href="#第六章-协同能力与脑力带宽">第六章 协同能力与脑力带宽</a></li>
+<li><a href="#第七章-华莱士悖论">第七章 华莱士悖论</a></li>
+<li><a href="#第八章-大脑可塑性">第八章 大脑可塑性</a></li>
+<li><a href="#第九章-adhd存在吗">第九章 ADHD存在吗？</a></li>
+<li><a href="#第十章-认知健身房">第十章 认知健身房</a></li>
+<li><a href="#第十一章-脑力的日常训练">第十一章 脑力的日常训练</a></li>
+<li><a href="#第十二章-电脑游戏">第十二章 电脑游戏</a></li>
+<li><a href="#第十三章-弗林效应">第十三章 弗林效应</a></li>
+<li><a href="#第十四章-神经认知的强化">第十四章 神经认知的强化</a></li>
+<li><a href="#第十五章-信息洪流与心流">第十五章 信息洪流与心流</a></li>
+</ul></li>
+</ul>
+</nav>
+			</div>
+			
+			
+			<article class="post-content twemoji">
+				
+
+<p>《超负荷的大脑·信息过载与工作记忆的极限》是瑞典医学、哲学博士托克尔·克林贝里的一本关于大脑进化的讨论、神经科学的历史、
+最前沿的科研方法学、信息理论，以及对神经可塑性的最新见解和关于多种神经发育疾病的全面综述。试图回答：我们大脑处理信息的
+能力为什么是有限的？这对我们的日常生活有什么影响？我们如何通过脑力锻炼拓展这些极限？</p>
+
+<hr />
+
+<h2 id="第一章-引言-石器时代的大脑遭遇信息洪流">第一章 引言：石器时代的大脑遭遇信息洪流</h2>
+
+<blockquote>
+<p>米勒：我们的大脑能力是有限的</p>
+</blockquote>
+
+<p><img src="/images/20170430-01_400x300.jpg" alt="人类大脑局限性示意图" /></p>
+
+<p>20世纪智商增长，但具体原因还未确定</p>
+
+<p><img src="/images/20170430-02_400x300.jpg" alt="" /></p>
+
+<p>相校于词汇量、常识性增长，解决问题的能力进步更大</p>
+
+<hr />
+
+<h2 id="第二章-信息门户">第二章 信息门户</h2>
+
+<p>不同种类的注意力
+  1. 受控注意（controlled attention）
+  2. 刺激驱动注意（stimulus-driven attention）
+  3. 唤醒（arousal）</p>
+
+<p><img src="/images/20170430-03_400x300.jpg" alt="" /></p>
+
+<p>刺激驱动注意与受控注意应该是分离的</p>
+
+<p>神经元之间的竞争，一个有趣但仍然不是很清楚的关于注意力的问题是：我们的思绪、想法、记忆和冲动如何互相竞争，但大
+脑接受信息的种种局限是由于注意力的种种机制不同</p>
+
+<hr />
+
+<h2 id="第三章-心智工作台">第三章 心智工作台</h2>
+
+<p>如何记住那些需要我们专注的东西？工作记忆（working memory）：指的是我们在有限的一段时间内记住信息的能力，一般来说就是几秒钟。</p>
+
+<p>巴德利工作记忆设定3个组成部分：1. 负责储存视觉信息，称为视觉空间模板（visuospatial sketch pad）；一个负责储存文字信息，
+称为语音回路（phonological loop）；一个负责协调前两者，称为中央执行系统（central executive）</p>
+
+<p>工作记忆 vs 长时记忆（）：工作记忆容量有限，长时记忆几乎无限
+长时记忆：分为与事件有关的情景记忆、与概念性信息有关的语义记忆
+ - 工作记忆与注意力之间的重叠关系只针对受控注意，刺激驱动注意并不需要工作记忆；
+ - 解决问题的能力与工作记忆之间存在很大的相关性（0.6~0.8）</p>
+
+<p>工作记忆对我们解决问题能力异常重要。原因是：必须保留并操作工作记忆中的视觉信息同时记住规则；涉及形式符号表示，本质上
+属于视觉空间性；需要控制我们的注意力</p>
+
+<blockquote>
+<p>我们必须记住才能专注</p>
+
+<p>&ndash; 恩格尔</p>
+</blockquote>
+
+<hr />
+
+<h2 id="第四章-工作记忆的模型">第四章 工作记忆的模型</h2>
+
+<h2 id="第五章-大脑与神奇数字7">第五章 大脑与神奇数字7</h2>
+
+<p>工作记忆的容量是有限的，它是限制我们处理信息和推理能力的“瓶颈”</p>
+
+<p>乔治·米勒建立了人类信息处理能力存在先天限制的假说，认为我们的工作记忆仅能储存大概7个单位的信息。他的一个目的就是要将
+信息理论的带宽概念引入心理学领域</p>
+
+<p><img src="/images/20170430-04_400x300.jpg" alt="" /></p>
+
+<hr />
+
+<h2 id="第六章-协同能力与脑力带宽">第六章 协同能力与脑力带宽</h2>
+
+<p>多任务（multi-tasking）对那些表现突出者以及急于快些解决所有事情的急性子来说，是一个早已熟知的策略。</p>
+
+<p>执行增加工作记忆负荷的任务会对人们的心智能力提出很高的要求，此时人们也变得更容易受到干扰。那些具有最低工作记忆容量的
+人也是最容易分心的。能够成功摒除外界干扰取决于两个因素：工作对心智的要求有多高，外界干扰有多强，而工作的心智要求有多高，
+又取决于有多少信息需要储存在工作记忆中以及她的工作记忆容量有多大。</p>
+
+<p><img src="/images/20170430-05_400x300.jpg" alt="" /></p>
+
+<hr />
+
+<h2 id="第七章-华莱士悖论">第七章 华莱士悖论</h2>
+
+<p>通过性选择的进化就是适应性进化之外的另一条道路，古尔德海提出了另一种进化的可能性：也许某个器官在某个特定的进化时期起
+到某一作用。在另一个时期则服务于另一种用途。</p>
+
+<p>也就是说在有一个时期，大脑中充满了副产品，这一想法很有趣。</p>
+
+<p>进化心理学理论将我们的智力——可能也包括我们的工作记忆的出现归功于我们社会化的生存环境、语言以及复杂文化的发展。其他
+理论则将其归结为性选择的结果或是副产品。当然，各种不同理论综合作用的结果也是可能的。</p>
+
+<hr />
+
+<h2 id="第八章-大脑可塑性">第八章 大脑可塑性</h2>
+
+<p>可塑性是一把双刃剑：被动性一样能影响大脑。</p>
+
+<p>“用进废退”并不是指整个大脑，而仅仅是指部分闹去和一些特定的功能。“特定的功能锻炼只开发特定的脑区”。大脑可以适应环境
+并可以通过训练来强化其功能。开发工作记忆在理论上应该是可行的。这种可塑性变化可以作为一种对特定环境的适应而被动发生，
+也能通过有意识且高强度地训练某一项功能进行强化。</p>
+
+<hr />
+
+<h2 id="第九章-adhd存在吗">第九章 ADHD存在吗？</h2>
+
+<p>ADHD：注意缺陷障碍[伴多症]（attention deficit hyperactivity disorder）</p>
+
+<p>注意障碍标准：
+ 1. 在学习、工作或其他活动中，常常不注意细节或因粗心导致错误。
+ 2. 在完成任务或从事活动时，常常难以保持注意力。
+ 3. 说话时常常心不在焉，似听非听。
+ 4. 往往不能按照指示完成作业、日常家务或工作。
+ 5. 常常难以有条理地安排任务或其他活动。
+ 6. 不喜欢、不愿意从事，并常常设法逃避那些需要精力持久的事情。
+ 7. 常常丢失学习、活动所必需的东西。
+ 8. 很容易受外界刺激而分心。
+ 9. 在日常活动中常常丢三落四。</p>
+
+<p>凯瑟琳·纳杜（Kathleen Nadeau）《工作场所中的ADD》（ADD in the Workplace）一书给那些处在混乱的办公环境中又有注意力缺陷
+的人提出了如下建议：</p>
+
+<ul>
+<li>要求弹性工作制以避开干扰性最强的时段。</li>
+<li>申请部分时间在家工作。</li>
+<li>用耳机或白噪声（white noise）机来消除声音。</li>
+<li>让你的办公桌背对人流。</li>
+<li>申请在某时间内使用独立办公室或是会议室。</li>
+</ul>
+
+<hr />
+
+<h2 id="第十章-认知健身房">第十章 认知健身房</h2>
+
+<p>熟能生巧。研究有事存在的不足之处在于所使用的研究对象数量太少了。另外，一些科学家指出，单独一项研究根本不算研究。这是大多数研究者
+常常会遇到的尴尬境地，心理学家詹姆斯对此做了总结：“当某个事物是新的时，人们会说‘这不是真的’。之后当它的真实性已经非常明显时，他们说‘这不重要’。
+最后，当它的重要性不容置疑的时候，就会说‘无所谓，反正不是什么新东西’。”</p>
+
+<p>大脑训练证明：1 高强度、长时间的认知任务训练能够改变大脑活动，这与感觉和运动训练的效果如出一辙。2 记录到的变化发生的脑区为多模态的“重叠”脑区。</p>
+
+<hr />
+
+<h2 id="第十一章-脑力的日常训练">第十一章 脑力的日常训练</h2>
+
+<p>原则：与训练肌肉类似，每周花几天时间把自己逼到能力的极限并如此坚持数月，在两种情况下是通用的。
+实际中，任务的难度并不是唯一影响结果的因素，必须每周练习半个小时，每周5天并坚持5周。</p>
+
+<p>研究发现：阅读、下棋、弹奏乐器和跳舞都与后期认知能力的相对完善以及痴呆风险降低有关。（要每周进行数次活动时才成立，每周进行8次心智训练的话，
+发生痴呆症的风险会降低一半）</p>
+
+<p>下棋是训练工作记忆最显著的活动（例如可以尝试中国象棋、国际象棋、围棋、军旗、跳棋等）</p>
+
+<hr />
+
+<h2 id="第十二章-电脑游戏">第十二章 电脑游戏</h2>
+
+<p><strong>玩电脑游戏是否会、以及究竟如何影响专注力？</strong></p>
+
+<p>运动类游戏并不激活前额叶，也就是说并不提高工作记忆。</p>
+
+<p>有30篇探讨游戏效应的已经发表的研究成果，共有6项研究证明游戏能增强空间技巧和反应时间，同时没有研究显示游戏对注意力有损害。</p>
+
+<p>判断哪些活动对认知有更高要求，并在计划时间内对其进行处理是十分必要的！</p>
+
+<p>要达到正确的难度、充分的强度并保持足够长的时间才较为合适。</p>
+
+<hr />
+
+<h2 id="第十三章-弗林效应">第十三章 弗林效应</h2>
+
+<p>在20世纪50年代、60年代和70年代，IQ以平均每年0.31分的速度增长，在90年代之后已经增加到了每年增长0.36分。</p>
+
+<p>IQ，即智商，则通过将测得的心智年龄初一实际年龄再乘以100得到。</p>
+
+<p>开发IQ的工作可分为：观察技巧和分类、归纳或演绎推理、语言的精准运用、解决问题能力、创造力和决断力。</p>
+
+<p>在20世纪最后的几十年里，对IQ影响最大的应该是信息量和社会复杂性的日益增加。</p>
+
+<p>也许，在我们生活的社会中，游戏、媒体、信息、科技都在不断地增加着我们工作记忆的负荷，这加强了我们整个人群的记忆和解决问题的能力，而这反过来
+又提高了负荷和复杂性。</p>
+
+<hr />
+
+<h2 id="第十四章-神经认知的强化">第十四章 神经认知的强化</h2>
+
+<p><strong>环境要求和我们的能力齐头并进的趋势是可持续的吗？</strong></p>
+
+<p>作者宁可看到他们用心智锻炼的方式来体现他们对于心智健康的关注。不如把注意力和工作记忆训练纳入学校课表。</p>
+
+<hr />
+
+<h2 id="第十五章-信息洪流与心流">第十五章 信息洪流与心流</h2>
+
+<p>两条同向传入的信息流对工作记忆的要求是非常高的。</p>
+
+<p>随着移动科技、互联网的发展，需要我们进行双任务的场合越来越多。在一个具有高度干扰性和沉重信息负担的环境中，我们对心智的严苛要求和越来越高的复杂性，
+使我们处理信息和解决问题的能力渐渐地越变越强。感到自己能力不足也许是因为能力提高的速度跟不上需求所提高的速度。毕竟，信息爆炸是当今最显著的特征。</p>
+
+<p>为了期望我们的心智功能得到开发，我们没有必要无条件地接受信息洪流。必须时常提醒自己，我们在接受信息的尺度方面总是有极限的。</p>
+
+<p>令某些人急出一身冷汗的技术问题，对于另一些人来说不过是一个有趣的挑战，适当运用自身和他人的能力是一门艺术。</p>
+
+<p>为什么我们热爱刺激？超越我们的能力范畴的事情很少能够成功，但是这并不意味着我们会对它敬而远之。我们自身存在着一种挑战极限的有趣倾向，我们想要更多
+的信息，更强的感官刺激，更高的复杂性。</p>
+
+<p>心流：指的是那种彻底专注并沉浸在所进行的事情之中的感觉。</p>
+
+<p><img src="/images/20170430-06_400x300.jpg" alt="" /></p>
+
+<p>只有当要求和技能，或者说能力和挑战，处在平衡状态时才能引导出心流，也许只有进入心流状态，我们的能力才能完全发挥，我们的潜能才能最大化地开发。当工作记忆
+负荷与工作记忆容量精确匹配时，我们在神奇数字7左右徘徊，此时达到的训练效果也最强，既然我们现在已经了解了它，那我们就应该设法控制环境，根据我们的能力去
+重塑我们的工作。</p>
+
+<hr />
+
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			
+				
+<a class="ui label" href="/tags/cap" title="cap">cap</a>
+
+<a class="ui label" href="/tags/django" title="django">django</a>
+
+<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+
+<a class="ui label" href="/tags/iot" title="iot">iot</a>
+
+<a class="ui label" href="/tags/latex" title="latex">latex</a>
+
+<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+
+<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+
+<a class="ui label" href="/tags/overleaf" title="overleaf">overleaf</a>
+
+<a class="ui label" href="/tags/%E5%AD%A6%E6%9C%AF%E6%8A%A5%E5%91%8A" title="学术报告">学术报告</a>
+
+<a class="ui label" href="/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4" title="批判性思维">批判性思维</a>
+
+<a class="ui label" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0" title="读书笔记">读书笔记</a>
+
+				
+			
+		</section>
+		
+		<section class="ui secondary attached segment share row box">
+			<div class="author shrink flexbox">
+	
+	<img class="avatar" src="http://work.baiqp.info//images/avatar.jpg">
+	
+</div>
+<div class="info shrink flexbox"> 
+	
+	<p class="name">Qipeng Bai</p>
+	
+	<p class="desc">New World</p>		
+</div>
+<div class="spacer both flexbox"></div>
+<section class="buttons row box none flexbox">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;《超负荷的大脑》阅读笔记  http:\/\/work.baiqp.info\/post\/2018-04-30-book-working-memory\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+
+		</section>
+		
+
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+				<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+	<article class="twemoji">
+		<h1>关于我</h1>
+
+<hr />
+
+<p><br>
+大家好，我是一名 USTC(University of Science and Technology of China) 的在读博士研究生。主要研究领域是地震学，有相关问题欢迎与我邮件讨论，请发至：<a href="bqpseismology@gmail.com">Email</a></p>
+
+<p>I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux. I feel the inner urge to contribute something to the Internet because I love writing and I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+
+<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are! I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page. Making stuff is just one of the things I love the most.</p>
+
+<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
+
+<p>Curious about me? Use the social links above to check out my profiles.</p>
+
+<p>You can also support me on <a href="https://patreon.com/UtkarshVerma" target="_blank">Patreon</a>. I&rsquo;d really appreciate it.</p>
+
+	</article>
+</div>
+
+		</section>
+	</div>
+</div>
+
+<script>
+	$('.dream-flip-toggle').click(function () {
+		var target = $('.pusher')
+		if (dreamBodyBgSwitchIndex === 0) {
+    	if(colorBG)
+    	 	setBackground(dreamBody, dreamBodyBgSwitch[1])
+			dreamBodyBgSwitchIndex = 1
+			target.toggleClass('flip-it')
+			setTimeout( function () {
+				$('.front').css('display','none')
+				$('.back').css('display','block')
+			}, 300)
+	 	}
+    else {
+    	if(colorBG)
+    		setBackground(dreamBody, dreamBodyBgSwitch[0])
+     	dreamBodyBgSwitchIndex = 0     	
+     	target.toggleClass('flip-it')   
+     	setTimeout( function (){
+     		$('.front').css('display','block')
+				$('.back').css('display','none')
+			}, 300)			
+		}
+	})
+</script>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+
+	<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+	
+
+	
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+
+	<script>
+	
+		anchors.add('section.ui.secondary.top.black.attached.segment article h1');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h2');
+		anchors.add('section.ui.secondary.top.black.attached.segment article h3');
+	
+</script>
+
+</body>
+
+</html>
